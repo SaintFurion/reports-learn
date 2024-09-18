@@ -86,3 +86,7 @@ a.desc:after {
 .form-group {
     margin-bottom: 1rem;
 }
+
+.has-error .invalid-feedback {
+    display: block;
+}
