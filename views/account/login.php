@@ -20,7 +20,7 @@ use yii\widgets\ActiveForm;
                 ],
             ]) ?>
 
-            <?= $form->field($model, 'username', ['template' => '{input} <div class="input-group-append"><div class="input-group-text"><span class="fas fa-envelope"></span></div></div>{error}', 'options' => ['class' => 'input-group mb-3']])->textInput(['placeholder' => 'Email', 'autofocus' => true]) ?>
+            <?= $form->field($model, 'username', ['template' => '{input} <div class="input-group-append"><div class="input-group-text"><span class="fas fa-envelope"></span></div></div>{error}', 'options' => ['class' => 'input-group mb-3']])->textInput(['placeholder' => 'Email', 'autofocus' => true, 'type'=>'email']) ?>
 
             <?= $form->field($model, 'password', ['template' => '{input} <div class="input-group-append"><div class="input-group-text"><span class="fas fa-lock"></span></div></div>{error}', 'options' => ['class' => 'input-group mb-3']])->passwordInput(['placeholder' => 'Password']) ?>
 

@@ -29,7 +29,7 @@ $config = [
         'user' => [
             'identityClass' => 'app\models\User',
             'enableAutoLogin' => true,
-            'loginUrl' => '/admin/auth/login'
+            'loginUrl' => ['/account/login'],
         ],
         'errorHandler' => [
             'errorAction' => 'site/error',
@@ -54,6 +54,10 @@ $config = [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+                '' => 'site/index',
+                'login' => 'account/login',
+                'admin' => 'main/index',
+                '<_a:[\w\-]+>' => 'site/<_a>',
             ],
         ],
     ],
