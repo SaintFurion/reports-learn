@@ -65,6 +65,9 @@ $config = [
                 '<_a:[\w\-]+>' => 'site/<_a>',
             ],
         ],
+        'formatter' => [
+            'datetimeFormat' => 'dd.MM.yyyy'
+        ],
     ],
     'params' => $params,
 ];

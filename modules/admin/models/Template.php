@@ -40,8 +40,8 @@ class Template extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'name' => 'Name',
-            'deadline' => 'Deadline',
+            'name' => 'Имя',
+            'deadline' => 'Срок сдачи',
         ];
     }
 }

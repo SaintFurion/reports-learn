@@ -14,46 +14,37 @@ $this->title = 'Шаблоны';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 
-<div class="row">
-    <div class="col-md-12">
-        <div class="card">
-            <div class="card-header">
+<div class="template-index">
+    <div class="row">
+        <div class="col-md-12">
+            <p>
                 <?= Html::a('Добавить шаблон', ['create'], ['class' => 'btn btn-primary']) ?>
-            </div>
-
-            <div class="card-body">
-                <div class="template-index">
-                    <?= GridView::widget([
-                        'dataProvider' => $dataProvider,
-                        'filterModel' => $searchModel,
-                        'pager' => ['class' => \yii\bootstrap5\LinkPager::class],
-                        'columns' => [
-                            'id',
-                            [
-                                'header' => 'Название',
-                                'attribute' => 'name',
-                                'format' => 'text',
-                            ],
-                            [
-                                'header' => 'Срок сдачи',
-                                'attribute' => 'deadline',
-                                'format' => 'text',
-                            ],
-                            [
-                                'class' => ActionColumn::class,
-                                'urlCreator' => function ($action, Template $model, $key, $index, $column) {
-                                    return Url::toRoute([$action, 'id' => $model->id]);
-                                }
-                            ],
+            </p>
+            <div class="card">
+                <?= GridView::widget([
+                    'dataProvider' => $dataProvider,
+                    'filterModel' => $searchModel,
+                    'layout' => '<div class="card-header"><h3 class="card-title">Список шаблонов</h3><div class="float-right">{summary}</div></div><div class="card-body">{items}</div><div class="card-footer clearfix">{pager}</div>',
+                    'pager' => [
+                        'class' => \yii\bootstrap5\LinkPager::class,
+                        'listOptions' => ['class' => 'pagination pagination-sm m-0 float-right']
+                    ],
+                    'columns' => [
+                        'id',
+                        'name',
+                        [
+                            'attribute' => 'deadline',
+                            'format' => 'datetime'
                         ],
-                    ]); ?>
-                </div>
+                        [
+                            'class' => ActionColumn::class,
+                            'urlCreator' => function ($action, Template $model, $key, $index, $column) {
+                                return Url::toRoute([$action, 'id' => $model->id]);
+                            }
+                        ],
+                    ],
+                ]); ?>
             </div>
-
-            <div class="card-footer clearfix">
-
-            </div>
-
         </div>
     </div>
 </div>
